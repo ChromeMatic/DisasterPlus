@@ -6,35 +6,7 @@ const AlertScreen = () =>{
     const Header = () =>{
         return(
             <View style={styles.header}>
-                <Text style={styles.headerText}>MAKE A PLAN</Text>
-            </View>
-        )
-    }
-
-    const Box2=()=>{
-        return(
-            <View style={styles.boxContainer}>
-
-                <View style={styles.box}>
-                    <Image style={styles.image} source={{
-                        width: '100%',
-                        height: '76%',
-                        uri:"https://picsum.photos/id/1038/200/300"
-                    }}
-                    />
-                    <Text style={styles.boxText}>Alert</Text>
-                </View>
-
-                <View style={styles.box}>
-                    <Image style={styles.image} source={{
-                        width: '100%',
-                        height: '76%',
-                        uri:"https://picsum.photos/200/300"
-                    }}
-                    />
-                    <Text style={styles.boxText}>Make a Plan</Text>
-                </View>
-
+                <Text style={styles.headerText}>ALERT</Text>
             </View>
         )
     }
@@ -42,7 +14,6 @@ const AlertScreen = () =>{
     return(
         <SafeAreaView>
             <Header/>
-            <Box2/>
         </SafeAreaView>
     )
 }
@@ -54,7 +25,7 @@ const styles = StyleSheet.create({
     header:{
         width:'100%',
         height:'16%',
-        backgroundColor:'#0097e6',
+        backgroundColor:'red',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -1,58 +1,61 @@
 import React, {useState} from "react";
-import {StyleSheet,Text,View,SafeAreaView,Image} from "react-native";
+import {StyleSheet,Text,View,TextInput,TouchableOpacity} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 const MakePlan = () =>{
 
-   const Header = () =>{
-       return(
-           <View style={styles.header}>
-               <Text style={styles.headerText}>MAKE A PLAN</Text>
-           </View>
-       )
-   }
-
-    const Box3 = () =>{
-        return(
-            <View style={styles.boxContainer}>
-                <View style={styles.box}>
-                    <Image style={styles.image} source={{
-                        width: '100%', height: '50%',
-                        uri:"https://images.unsplash.com/photo-1520299607509-dcd935f9a839?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80"
-                    }}
-                    />
-                    <Text style={styles.boxText}>Select your location</Text>
-                </View>
-                <View style={styles.box}>
-                    <Image style={styles.image} source={{
-                        width: '100%', height: '50%',
-                        uri:"https://images.unsplash.com/photo-1622905810727-9cc3126d712e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
-                    }}
-                    />
-                    <Text style={styles.boxText}>START PLANING</Text>
-                </View>
-                <View style={styles.box2}>
-                    <Image style={styles.image} source={{
-                        width: '100%', height: '50%',
-                        uri:"https://images.unsplash.com/photo-1594935975218-a3596da034a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                    }}
-                    />
-                    <Text style={styles.boxText}>START PLANING</Text>
-                </View>
-            </View>
-        )
+    const nav = useNavigation();
+    const SavePlan = () => {
+        nav.navigate('HomeScreen');
     }
 
-   return(
-      <SafeAreaView>
-          <Header/>
-          <Box3/>
-      </SafeAreaView>
-   )
+    return (
+        <View style={styles.container} >
+            <Text style={styles.boxText} > MAKE A PLAN! </Text>
+            <View style={styles.InnerCon}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Name of plan" />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Name of shelter"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Number of persons"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Emergency contact"
+                />
+
+                <TouchableOpacity style={styles.btnContainer} onPress={SavePlan}>
+                    <Text style={styles.text}>SAVE</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
     container:{
         flex: 1
+    },
+    text:{
+        color:'green',
+        fontWeight:'700',
+        fontSize:32,
+    },
+    InnerCon:{
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center"
+    },
+    btnContainer:{
+      marginTop:16,
+      alignItems: 'center',
+      justifyContent: 'center',
+
     },
     header:{
         width:'100%',
@@ -88,13 +91,22 @@ const styles = StyleSheet.create({
     },
     boxText:{
         marginTop:12,
-        fontSize:24,
+        fontSize:50,
         fontWeight:'800',
-        color:'#27ae60'
+        color:'#27ae60',
+        paddingTop: 8,
+        paddingHorizontal:2,
+        paddingBottom: 8
     },
-    image:{
-        borderRadius:8
-    }
+    input:{
+        backgroundColor: '#fff',
+        paddingHorizontal: 15,
+        paddingVertical:10,
+        borderRadius: 4,
+        marginTop: 8,
+        width:300
+    },
+
 })
 
 export  default  MakePlan;

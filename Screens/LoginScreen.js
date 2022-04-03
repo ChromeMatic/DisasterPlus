@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet,Text,TouchableOpacity, TextInput,View, KeyboardAvoidingView} from "react-native";
+import {StyleSheet,Text,TouchableOpacity, TextInput,View,SafeAreaView} from "react-native";
 import {auth} from "../firebase";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
@@ -10,12 +10,11 @@ const LoginScreen = () =>{
    const [password,setPassword] = useState('')
 
    const navigation = useNavigation();
+
    useEffect(()=>{
      const unsubscribe =  auth.onAuthStateChanged(user => {
-           if(user){
-               navigation.navigate('Home');
-           }
-       })
+           if(user){navigation.navigate('HomeScreen');}
+     });
      return unsubscribe;
    },[])
 
@@ -36,46 +35,53 @@ const LoginScreen = () =>{
    }
     
    return(
-      <KeyboardAvoidingView
-       style={styles.container}
-       behavior="padding"
-      >
-       <View style={styles.inputContainer}>
-           <TextInput
-               placeholder="Email"
-               value={email}
-               onChangeText={text => setEmail(text)}
-               style={styles.input}
-           />
-           <TextInput
-               placeholder="Password"
-               value={password}
-               onChangeText={text => setPassword(text)}
-               style={styles.input}
-               secureTextEntry
-           />
-       </View>
+      <SafeAreaView  style={styles.container} behavior="padding">
 
-       <View style={styles.btnContainer}>
-            <TouchableOpacity
-                onPress={handleLogin}
-                style={styles.btn}
-            >
-              <Text style={styles.btnText}>LOGIN</Text>
-            </TouchableOpacity>
+           <View style={styles.inputContainer}>
+               <Text style={styles.textHeader}>
+                   {'DISASTER-PLUS'.toUpperCase()}
+               </Text>
+               <TextInput
+                   placeholder="EMAIL"
+                   value={email}
+                   onChangeText={text => setEmail(text)}
+                   style={styles.input}
+               />
+               <TextInput
+                   placeholder="PASSWORD"
+                   value={password}
+                   onChangeText={text => setPassword(text)}
+                   style={styles.input}
+                   secureTextEntry
+               />
+           </View>
 
-           <TouchableOpacity
-               onPress={handleSignUp}
-               style={[styles.btn,styles.btnOutLine]}
-           >
-               <Text style={styles.btnOutLineText}>REGISTER</Text>
-           </TouchableOpacity>
-       </View>
-      </KeyboardAvoidingView>
+           <View style={styles.btnContainer}>
+                <TouchableOpacity
+                    onPress={handleLogin}
+                    style={styles.btn}
+                >
+                  <Text style={styles.btnText}>LOGIN</Text>
+                </TouchableOpacity>
+
+               <TouchableOpacity
+                   onPress={handleSignUp}
+                   style={[styles.btn,styles.btnOutLine]}
+               >
+                   <Text style={styles.btnOutLineText}>REGISTER</Text>
+               </TouchableOpacity>
+           </View>
+      </SafeAreaView>
    )
 }
 
 const styles = StyleSheet.create({
+    textHeader:{
+        textAlign:"center",
+        fontWeight:'600',
+        fontSize:32,
+        color:'#34495e'
+    },
     container:{
        flex: 1,
        justifyContent: 'center',
@@ -83,14 +89,14 @@ const styles = StyleSheet.create({
         backgroundColor:"#ecf0f1"
     },
     inputContainer:{
-        width:'80%'
+        width:'88%'
     },
     input:{
        backgroundColor: '#fff',
        paddingHorizontal: 15,
        paddingVertical:10,
        borderRadius: 4,
-       marginTop: 6
+       marginTop: 16,
     },
     btnContainer:{
         width:'60%',
