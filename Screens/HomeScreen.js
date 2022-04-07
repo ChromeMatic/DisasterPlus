@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import {StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, Animated} from "react-native";
+import {StyleSheet, Linking, Text, View, SafeAreaView, Image, TouchableOpacity, Animated} from "react-native";
 import {auth} from "../firebase";
 import {useNavigation} from "@react-navigation/native";
 import homeIcon from  "../assets/home.png";
@@ -7,7 +7,7 @@ import settingIcon from  "../assets/setting-lines.png";
 import alert from  "../assets/bell.png"
 import plan  from  "../assets/planning.png"
 import  logout from  "../assets/logout.png"
-import menu from  "../assets/menu.png"
+import menu from  "../assets/square.png"
 import  close from  "../assets/close.png"
 
 
@@ -41,8 +41,7 @@ const HomeScreen = () =>{
                       navigation.navigate('HomeScreen');
                    }else{
                        if (title === 'alert'){
-
-                           navigation.navigate('AlertScreen')
+                           Linking.openURL('https://www.odpem.org.jm/');
                        }
                        if(title === 'plan'){
 
@@ -181,12 +180,11 @@ const HomeScreen = () =>{
                      source={{uri:'https://images.unsplash.com/photo-1605994543054-6ffbabbd8139?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'}}
                      style={{
                          width: '100%',
-                         height: 300,
+                         height: 275,
                          borderRadius: 15,
                          marginTop: 20
                      }}
                  />
-
              </Animated.View>
 
         </SafeAreaView>
