@@ -8,7 +8,7 @@ import alert from  "../assets/bell.png"
 import plan  from  "../assets/planning.png"
 import  logout from  "../assets/logout.png"
 import menu from  "../assets/square.png"
-import  close from  "../assets/close.png"
+import {GetPlan} from "../API/Plan.js"
 
 
 const HomeScreen = () =>{

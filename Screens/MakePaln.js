@@ -1,12 +1,34 @@
 import React, {useState} from "react";
 import {StyleSheet,Text,View,TextInput,TouchableOpacity, SafeAreaView} from "react-native";
 import {useNavigation} from "@react-navigation/native";
+import {SavePlan} from '../API/Plan.js';
 
 const MakePlan = () =>{
 
+    let Plan = {
+        name:'',
+        PlanName:'',
+        Shelter:'',
+        number:'',
+        Kin:'',
+        createdAt:''
+    };
+
+    const [fullName, setFullName] = useState('');
+    const [name,setName] = useState('');
+    const [shelterName, SetShelterName] = useState('');
+    const [number, SetNumber] = useState('');
+    const [nextOfKin, setNextOfKin] = useState('');
+
     const nav = useNavigation();
-    const SavePlan = () => {
-        // add code to save
+
+    const Save = () => {
+       Plan.name = fullName;
+       Plan.PlanName = name;
+       Plan.Shelter = shelterName;
+       Plan.number = number;
+       Plan.Kin = nextOfKin;
+       SavePlan(Plan);
     }
 
     const SaveBtn = () =>{
@@ -16,7 +38,7 @@ const MakePlan = () =>{
                 justifyContent:'center',
                 alignItems:'center'
             }}>
-                <TouchableOpacity onPress={SavePlan} style={{
+                <TouchableOpacity onPress={Save} style={{
                     backgroundColor:'#fff',
                     borderColor:"#2ecc71",
                     borderWidth:2,
@@ -78,6 +100,8 @@ const MakePlan = () =>{
               }}>
                   <TextInput
                       placeholder="FULL NAME"
+                      value={fullName}
+                      onChangeText={text => setFullName(text)}
                       style={styles.input}
                   />
               </View>
@@ -93,6 +117,8 @@ const MakePlan = () =>{
               }}>
                     <TextInput
                         placeholder="NAME OF PLAN"
+                        value={name}
+                        onChangeText={text => setName(text)}
                         style={styles.input}
                     />
               </View>
@@ -108,6 +134,8 @@ const MakePlan = () =>{
               }}>
                   <TextInput
                       placeholder="NAME OF SHELTER"
+                      value={shelterName}
+                      onChangeText={text => SetShelterName(text)}
                       style={styles.input}
                   />
               </View>
@@ -123,6 +151,8 @@ const MakePlan = () =>{
               }}>
                   <TextInput
                       placeholder="EMERGENCY CONTACT NUMBER"
+                      value={number}
+                      onChangeText={text => SetNumber(text)}
                       style={styles.input}
                   />
               </View>
@@ -138,6 +168,8 @@ const MakePlan = () =>{
               }}>
                   <TextInput
                       placeholder="NEXT OF KIN NAME"
+                      value={nextOfKin}
+                      onChangeText={text => setNextOfKin(text)}
                       style={styles.input}
                   />
               </View>
