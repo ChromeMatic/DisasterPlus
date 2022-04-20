@@ -3,6 +3,7 @@ import {StyleSheet,Text,TouchableOpacity, TextInput,View,SafeAreaView} from "rea
 import {auth} from "../firebase";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
+import  firestore from  '@react-native-firebase/firestore'
 
 const LoginScreen = () =>{
 
@@ -22,7 +23,9 @@ const LoginScreen = () =>{
        createUserWithEmailAndPassword(auth,email,password)
            .then(userCredentials =>{
                const user = userCredentials.user;
-               console.log("User created :",user.email)
+               firestore().collection('users')
+                   .doc(user.uid)
+                   .set({email})
        }).catch(error => alert(error.message))
    }
    

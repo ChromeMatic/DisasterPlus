@@ -7,6 +7,9 @@ import {
     Image,
     TouchableOpacity
 } from "react-native";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {fetchUser} from '../redux/actions/index.js'
 
 const LandingPage = () =>{
 
@@ -118,5 +121,6 @@ const  styles = StyleSheet.create({
         alignItems:'center'
     }
 })
+
 
 export  default  LandingPage;
