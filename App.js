@@ -6,27 +6,20 @@ import MakePlan from  "./Screens/MakePaln.js";
 import AlertScreen from "./Screens/AlertScreent.js";
 import SOS from "./Screens/SOS.js";
 import LandingPage from "./Screens/LnadingPage";
-import {Provider} from 'react-redux';
-import { creteStore, applyMiddleware} from "redux";
-import rootReducer from './redux/reducers'
-import thunk from "redux-thunk";
 
-const store = creteStore(rootReducer,applyMiddleware(thunk));
 const Stack = createNativeStackNavigator();
 
 export default function App() {
     return (
        <NavigationContainer>
-           <Provider store={store}>
-               <Stack.Navigator screenOptions={{headerShown: false}}>
-                   <Stack.Screen name="Welcome" component={LandingPage} />
-                   <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-                   <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-                   <Stack.Screen name="MakePlan" component={MakePlan}/>
-                   <Stack.Screen name="AlertScreen" component={AlertScreen}/>
-                   <Stack.Screen name="SOS" component={SOS}/>
-               </Stack.Navigator>
-           </Provider>
+           <Stack.Navigator screenOptions={{headerShown: false}}>
+               <Stack.Screen name="Welcome" component={LandingPage} />
+               <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+               <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+               <Stack.Screen name="MakePlan" component={MakePlan}/>
+               <Stack.Screen name="AlertScreen" component={AlertScreen}/>
+               <Stack.Screen name="SOS" component={SOS}/>
+           </Stack.Navigator>
        </NavigationContainer>
     );
 }

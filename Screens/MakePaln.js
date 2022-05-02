@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {StyleSheet,Text,View,TextInput,TouchableOpacity, SafeAreaView} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import {SavePlan} from '../API/Plan.js';
 
 const MakePlan = () =>{
 
@@ -28,7 +27,6 @@ const MakePlan = () =>{
        Plan.Shelter = shelterName;
        Plan.number = number;
        Plan.Kin = nextOfKin;
-       SavePlan(Plan);
     }
 
     const SaveBtn = () =>{

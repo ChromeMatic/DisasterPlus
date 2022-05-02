@@ -8,7 +8,7 @@ import alert from  "../assets/bell.png"
 import plan  from  "../assets/planning.png"
 import  logout from  "../assets/logout.png"
 import menu from  "../assets/square.png"
-import {GetPlan} from "../API/Plan.js"
+
 
 
 const HomeScreen = () =>{
@@ -85,6 +85,61 @@ const HomeScreen = () =>{
        )
    }
 
+   const BoxItems = () =>{
+       return(
+           <View style={{
+               flex: 1, backgroundColor: "#ecf0f1",
+               marginTop:8, borderRadius: 15,
+               width:"100%", padding: 16
+           }}>
+
+             <View style={{
+                 flex: 1, flexDirection: "row",
+                 backgroundColor:"#2ecc71",margin:2,
+                 borderRadius: 8, alignItems:"center",
+                 justifyContent:"center"
+             }}>
+                 <Text style={{
+                     fontSize:24,
+                     color:'#fff',
+                     fontWeight:'bold'
+                 }}>
+                     {'no alerts today'.toUpperCase()}
+                 </Text>
+             </View>
+
+             <View style={{
+                   flex: 1, flexDirection: "row",
+                   backgroundColor:"#1e90ff",margin:2,
+                   borderRadius: 8, alignItems:"center",
+                   justifyContent:"center"
+               }}>
+                 <Text style={{
+                     fontSize:24,
+                     color:'#fff',
+                 }}>
+                     {'View Weather Report'.toUpperCase()}
+                 </Text>
+             </View>
+
+             <View style={{
+                   flex: 1, flexDirection: "row",
+                   backgroundColor:"#1e90ff",margin:2,
+                   borderRadius: 8, alignItems:"center",
+                   justifyContent:"center"
+             }}>
+                 <Text style={{
+                     fontSize:24,
+                     color:'#fff',
+                 }}>
+                     {'View Weather Report'.toUpperCase()}
+                 </Text>
+             </View>
+
+           </View>
+       )
+   }
+
     return(
         <SafeAreaView style={styles.con1}>
 
@@ -120,10 +175,6 @@ const HomeScreen = () =>{
 
           </View>
 
-             {
-                  // overlay view
-             }
-
              <Animated.View style={{
                  flexGrow:1,
                  height: '100%',
@@ -141,50 +192,60 @@ const HomeScreen = () =>{
                  ]
              }}>
 
-                <TouchableOpacity
-                    onPress={()=>{
-                        Animated.timing(scaleValue,{
-                            toValue: showMenu ? 1 : 0.88,
-                            duration:300,
-                            useNativeDriver:true
-                        }).start()
-                        Animated.timing(offsetValue,{
-                            toValue: showMenu ? 0 : 220,
-                            duration:300,
-                            useNativeDriver:true
-                        }).start()
-                        setShowMenu(!showMenu);
-                    }}
-                >
-                    <Image
-                        source={menu}
-                        style={{
-                            width: 25,
-                            height: 25,
-                            tintColor:'#2c3e50',
-                            marginTop:40,
+                <View style={{
+                     flexDirection: "row",
+                }}>
+                    <TouchableOpacity
+                        onPress={()=>{
+                            Animated.timing(scaleValue,{
+                                toValue: showMenu ? 1 : 0.88,
+                                duration:300,
+                                useNativeDriver:true
+                            }).start()
+                            Animated.timing(offsetValue,{
+                                toValue: showMenu ? 0 : 220,
+                                duration:300,
+                                useNativeDriver:true
+                            }).start()
+                            setShowMenu(!showMenu);
                         }}
-                    />
-                </TouchableOpacity>
+                    >
+                        <Image
+                            source={menu}
+                            style={{
+                                width: 25,
+                                height: 25,
+                                tintColor:'#2c3e50',
+                                marginTop:40,
+                                marginLeft:12
+                            }}
+                        />
+                    </TouchableOpacity>
 
-                 <Text style={{
-                     fontSize:24,
-                     color:"#2c3e50",
-                     fontWeight:'bold',
-                     paddingTop:20,
-                 }}>
-                     {currentTab.toUpperCase()}
-                 </Text>
+                    <Text style={{
+                        fontSize:24,
+                        color:"#2c3e50",
+                        fontWeight:'bold',
+                        paddingTop:20,
+                        marginTop:15,
+                        marginLeft:16
+                    }}>
+                        {currentTab.toUpperCase()}
+                    </Text>
+                </View>
 
                  <Image
                      source={{uri:'https://images.unsplash.com/photo-1605994543054-6ffbabbd8139?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80'}}
                      style={{
                          width: '100%',
-                         height: 275,
+                         height: 250,
                          borderRadius: 15,
                          marginTop: 20
                      }}
                  />
+
+                <BoxItems/>
+
              </Animated.View>
 
         </SafeAreaView>
@@ -201,6 +262,9 @@ const styles = StyleSheet.create({
     con2:{
          justifyContent:"flex-start",
          padding:15,
+    },
+    con3:{
+
     },
     img:{
        width:60,
