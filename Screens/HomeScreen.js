@@ -6,7 +6,7 @@ import homeIcon from  "../assets/home.png";
 import settingIcon from  "../assets/setting-lines.png";
 import alert from  "../assets/bell.png"
 import plan  from  "../assets/planning.png"
-import  logout from  "../assets/logout.png"
+import logout from  "../assets/logout.png"
 import menu from  "../assets/square.png"
 
 
@@ -41,7 +41,7 @@ const HomeScreen = () =>{
                       navigation.navigate('HomeScreen');
                    }else{
                        if (title === 'alert'){
-                           Linking.openURL('https://www.odpem.org.jm/');
+                           navigation.navigate('AlertScreen')
                        }
                        if(title === 'plan'){
 
@@ -49,6 +49,12 @@ const HomeScreen = () =>{
                        }
                        if (title === 'settings'){
                            navigation.navigate('HomeScreen')
+                       }
+                       if(title === 'Admin'){
+                           navigation.navigate('Admin')
+                       }
+                       if(title === 'SOS'){
+                           navigation.navigate('SOS')
                        }
                    }
                }}
@@ -85,57 +91,66 @@ const HomeScreen = () =>{
        )
    }
 
+
+   const LinkBtn = () => {
+     return(
+         <View>
+             <TouchableOpacity
+                 onPress={()=>{
+                 navigation.navigate("SOS")}}
+                 style={{
+                     marginBottom:16,
+                     backgroundColor:"#FFFF",
+                     paddingVertical: 16,
+                     paddingHorizontal: 34,
+                     borderRadius:12
+                 }}
+             >
+                 <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20,textAlign:'center'}}>
+                     {'request for help!'.toUpperCase()}
+                 </Text>
+             </TouchableOpacity>
+
+             <TouchableOpacity
+                 onPress={()=>{
+                    Linking.openURL('https://www.odpem.org.jm/')
+                 }}
+                 style={{
+                     marginBottom:16,
+                     backgroundColor:"#FFFF",
+                     paddingVertical: 16,
+                     paddingHorizontal: 34,
+                     borderRadius:12
+                 }}
+             >
+                 <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20, textAlign:'center'}}>
+                     {'View ODPEN shelters'.toUpperCase()}
+                 </Text>
+             </TouchableOpacity>
+
+             <TouchableOpacity
+                 onPress={()=>{
+                     navigation.navigate("Admin")}}
+                 style={{
+                     marginBottom:16,
+                     backgroundColor:"#FFFF",
+                     paddingVertical: 16,
+                     paddingHorizontal: 34,
+                     borderRadius:12
+                 }}
+             >
+                 <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20, textAlign:'center'}}>
+                     {'for admin'.toUpperCase()}
+                 </Text>
+             </TouchableOpacity>
+         </View>
+     )
+   }
+
    const BoxItems = () =>{
        return(
-           <View style={{
-               flex: 1, backgroundColor: "#ecf0f1",
-               marginTop:8, borderRadius: 15,
-               width:"100%", padding: 16
-           }}>
-
-             <View style={{
-                 flex: 1, flexDirection: "row",
-                 backgroundColor:"#2ecc71",margin:2,
-                 borderRadius: 8, alignItems:"center",
-                 justifyContent:"center"
-             }}>
-                 <Text style={{
-                     fontSize:24,
-                     color:'#fff',
-                     fontWeight:'bold'
-                 }}>
-                     {'no alerts today'.toUpperCase()}
-                 </Text>
-             </View>
-
-             <View style={{
-                   flex: 1, flexDirection: "row",
-                   backgroundColor:"#1e90ff",margin:2,
-                   borderRadius: 8, alignItems:"center",
-                   justifyContent:"center"
-               }}>
-                 <Text style={{
-                     fontSize:24,
-                     color:'#fff',
-                 }}>
-                     {'View Weather Report'.toUpperCase()}
-                 </Text>
-             </View>
-
-             <View style={{
-                   flex: 1, flexDirection: "row",
-                   backgroundColor:"#1e90ff",margin:2,
-                   borderRadius: 8, alignItems:"center",
-                   justifyContent:"center"
-             }}>
-                 <Text style={{
-                     fontSize:24,
-                     color:'#fff',
-                 }}>
-                     {'View Weather Report'.toUpperCase()}
-                 </Text>
-             </View>
-
+           <View style={{flex: 1, justifyContent:'center', alignItems:'center', backgroundColor: "#ecf0f1", marginTop:8, borderRadius: 15, width:"100%", padding: 16}}>
+                <LinkBtn/>
            </View>
        )
    }
@@ -164,9 +179,10 @@ const HomeScreen = () =>{
 
             <View style={{flexGrow:1, marginTop:25}}>
                 {btn('Home',homeIcon,currentTab,setCurrentTab)}
-                {btn('alert',alert,currentTab,setCurrentTab)}
+                {btn('SOS',alert,currentTab,setCurrentTab)}
                 {btn('plan',plan,currentTab,setCurrentTab)}
                 {btn('settings',settingIcon,currentTab,setCurrentTab)}
+                {btn('Admin',menu,currentTab,setCurrentTab)}
             </View>
 
             <View>

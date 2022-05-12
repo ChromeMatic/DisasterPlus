@@ -27,6 +27,8 @@ const MakePlan = () =>{
        Plan.Shelter = shelterName;
        Plan.number = number;
        Plan.Kin = nextOfKin;
+       alert("Plan saved.");
+       nav.navigate('HomeScreen');
     }
 
     const SaveBtn = () =>{
