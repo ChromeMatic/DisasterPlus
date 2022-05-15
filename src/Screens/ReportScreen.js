@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {SafeAreaView, ScrollView, StyleSheet, Text} from "react-native";
-import * as Location from 'expo-location';
+import {SafeAreaView, ScrollView, Text} from "react-native";
+import ReportScreenStyle from '../StyleSheets/ReportScreenStyle'
+import getGeoLocation from '../Reuseables/GetGeoLocation'
 
 const Report_Screen = () =>{
 
@@ -8,34 +9,16 @@ const Report_Screen = () =>{
     const [_errorMsg, setErrorMsg] = useState(null);
 
     useEffect(() => {
-        (async () => {
-            let { status } = await Location.requestForegroundPermissionsAsync();
-            if (status !== 'granted') {
-                setErrorMsg('Permission to access location was denied');
-                alert(_errorMsg)
-                return;
-            }
-            let location = await Location.getCurrentPositionAsync({});
-            setLocation( location["coords"]);
-        })();
+        (() => getGeoLocation(setErrorMsg,setLocation,_errorMsg))();
     }, []);
 
     return(
         <ScrollView>
-            <SafeAreaView style={styles.container}>
-                <Text style={{textAlign:'center',fontSize:23,fontWeight:'bold'}}>Report Screen</Text>
+            <SafeAreaView style={ReportScreenStyle.container}>
+                <Text style={ReportScreenStyle._Text}>Report Screen</Text>
             </SafeAreaView>
         </ScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        marginTop:20,
-        alignItems:"flex-start",
-        justifyContent:"flex-start",
-    }
-});
 
 export default Report_Screen;

@@ -8,8 +8,7 @@ import alert from "../../assets/bell.png"
 import plan  from "../../assets/planning.png"
 import logout from "../../assets/logout.png"
 import menu from "../../assets/square.png"
-
-
+import HomeStyle from "../StyleSheets/HomeScreenStyleSheet";
 
 const HomeScreen = () =>{
 
@@ -98,13 +97,7 @@ const HomeScreen = () =>{
              <TouchableOpacity
                  onPress={()=>{
                  navigation.navigate("SOS")}}
-                 style={{
-                     marginBottom:16,
-                     backgroundColor:"#FFFF",
-                     paddingVertical: 16,
-                     paddingHorizontal: 34,
-                     borderRadius:12
-                 }}
+                 style={HomeStyle._btn}
              >
                  <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20,textAlign:'center'}}>
                      {'request for help!'.toUpperCase()}
@@ -171,11 +164,11 @@ const HomeScreen = () =>{
    }
 
     return(
-        <SafeAreaView style={styles.con1}>
+        <SafeAreaView style={HomeStyle.con1}>
 
-          <View style={styles.con2}>
+          <View style={HomeStyle.con2}>
             <Image
-                style={styles.img}
+                style={HomeStyle.img}
                 source={{uri:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"}}
             />
             <Text style={{
@@ -282,37 +275,5 @@ const HomeScreen = () =>{
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    con1:{
-         flex:1,
-         alignItems:"flex-start",
-         justifyContent:"flex-start",
-         backgroundColor:"#2c3e50"
-     },
-    con2:{
-         justifyContent:"flex-start",
-         padding:15,
-    },
-    con3:{
-
-    },
-    img:{
-       width:60,
-       height:60,
-       borderRadius:12,
-       marginTop:20
-    },
-    btnCon:{
-        flexDirection:"row",
-        alignItems:"center",
-        paddingVertical:12,
-        backgroundColor:'#fff',
-        paddingLeft:30,
-        paddingRight:30,
-        borderRadius: 4,
-        marginTop:25,
-    }
-});
 
 export default HomeScreen;
