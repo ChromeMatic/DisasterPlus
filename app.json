@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DisasterPlus",
-    "slug": "DisasterPlus",
+    "name": "DisasterPlusV25",
+    "slug": "disasterplusv25",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

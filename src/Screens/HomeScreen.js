@@ -1,13 +1,13 @@
 import React, {useRef, useState} from "react";
 import {StyleSheet, Linking, Text, View, SafeAreaView, Image, TouchableOpacity, Animated} from "react-native";
-import {auth} from "../firebase";
+import {auth} from "../../firebase";
 import {useNavigation} from "@react-navigation/native";
-import homeIcon from  "../assets/home.png";
-import settingIcon from  "../assets/setting-lines.png";
-import alert from  "../assets/bell.png"
-import plan  from  "../assets/planning.png"
-import logout from  "../assets/logout.png"
-import menu from  "../assets/square.png"
+import homeIcon from "../../assets/home.png";
+import settingIcon from "../../assets/setting-lines.png";
+import alert from "../../assets/bell.png"
+import plan  from "../../assets/planning.png"
+import logout from "../../assets/logout.png"
+import menu from "../../assets/square.png"
 
 
 
@@ -141,6 +141,21 @@ const HomeScreen = () =>{
              >
                  <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20, textAlign:'center'}}>
                      {'for admin'.toUpperCase()}
+                 </Text>
+             </TouchableOpacity>
+
+             <TouchableOpacity
+                 onPress={() =>{navigation.navigate("ReportScreen")}}
+                 style={{
+                     marginBottom:16,
+                     backgroundColor:"#FFFF",
+                     paddingVertical: 16,
+                     paddingHorizontal: 34,
+                     borderRadius:12
+                 }}
+             >
+                 <Text style={{color:'#34495e', fontWeight:'bold',fontSize:20, textAlign:'center'}}>
+                     {'make a report'.toUpperCase()}
                  </Text>
              </TouchableOpacity>
          </View>

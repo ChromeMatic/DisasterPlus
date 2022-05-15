@@ -64,7 +64,7 @@ const Box2 = () =>{
     )
 }
 
-const Infos =(title)=>{
+const Infos =(title,link)=>{
     return(
         <TouchableOpacity style={{
             flex:1,
@@ -76,7 +76,7 @@ const Infos =(title)=>{
             padding:16,
         }}
            onPress={()=>{
-               Linking.openURL('https://www.scribblemaps.com/maps/view/Emergency%20Services/SuAuDB0NRl')
+               Linking.openURL(''+link)
            }}
         >
             <Text style={{
@@ -99,11 +99,10 @@ const Details = () =>{
             }}>
                 {'Alerts'.toUpperCase()}
             </Text>
-            {Infos('Alert in Kingston')}
-            {Infos('Alert in St. Thomas')}
-            {Infos('Alert in St. James')}
-            {Infos('Alert in St. Andrew')}
-            {Infos('Alert in St. Cathrine')}
+            {Infos('Emergency Services','https://www.scribblemaps.com/maps/view/Jason-Williams/hUj003rsN8')}
+            {Infos('Alert in Kingston','https://www.scribblemaps.com/maps/view/Emergency%20Services/SuAuDB0NRl')}
+            {Infos('Alert in Manchester','https://www.scribblemaps.com/maps/view/Mary-Jane/1auNUuk9CQ')}
+            {Infos('Alert in St. Cathrine','https://www.scribblemaps.com/maps/view/Carleen%20Whyte%20(copy)/C3wtDgitYf')}
         </View>
     )
 }

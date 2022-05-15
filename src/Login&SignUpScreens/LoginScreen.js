@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {StyleSheet, Text, TouchableOpacity, TextInput, View,ScrollView, SafeAreaView, Image} from "react-native";
-import {auth} from "../firebase";
+import {auth} from "../../firebase";
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
 import firestore from "@react-native-firebase/firestore";
-import Pic from '../assets/SignUp.png';
+import Pic from '../../assets/SignUp.png';
 
 const ImageView = () =>{
     return(
