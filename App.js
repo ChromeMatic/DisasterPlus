@@ -11,6 +11,7 @@ import Report_Screen from "./src/Screens/ReportScreen";
 import {Provider} from "react-redux";
 import {Store} from "./src/Redux/store";
 import HelpFrom from "./src/Screens/HelpFrom";
+import SignUpScreen from "./src/Login&SignUpScreens/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ export default function App() {
                <Stack.Navigator screenOptions={{headerShown: false}}>
                    <Stack.Screen name="Welcome" component={LandingPage} />
                    <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+                   <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
                    <Stack.Screen name="HomeScreen" component={HomeScreen}/>
                    <Stack.Screen name="MakePlan" component={MakePlan}/>
                    <Stack.Screen name="AlertScreen" component={AlertScreen}/>

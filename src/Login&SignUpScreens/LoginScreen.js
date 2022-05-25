@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from "react";
 import { Text, TouchableOpacity, TextInput, View,ScrollView, SafeAreaView, Image} from "react-native";
 import {auth} from "../../firebase";
-import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import {useNavigation} from "@react-navigation/native";
-import firestore from "@react-native-firebase/firestore";
 import Pic from '../../assets/SignUp.png';
 import loginStyles from '../StyleSheets/LoginStyles'
 
 const ImageView = () =>{
     return(
-        <View style={loginStyles.inputContainer}>
+        <View style={loginStyles.ImageCon}>
             <Image
                 source={Pic}
                 style={loginStyles.image}
@@ -33,15 +32,7 @@ const LoginScreen = () =>{
      return unsubscribe;
    },[])
 
-    const handleSignUp = () =>{
-        createUserWithEmailAndPassword(auth,email,password,role)
-            .then(userCredentials =>{
-                const user = userCredentials.user;
-                firestore().collection('users')
-                    .doc(user.uid)
-                    .set({email,password,role})
-            }).catch(error => alert(error.message))
-    }
+    const handleSignUp = () =>{ navigation.navigate('SignUpScreen');}
    
    const handleLogin = () => {
        signInWithEmailAndPassword(auth,email,password)
@@ -93,7 +84,7 @@ const LoginScreen = () =>{
                      onPress={handleSignUp}
                      style={[loginStyles.btn,loginStyles.btnOutLine]}
                  >
-                     <Text style={loginStyles.btnOutLineText}>REGISTER</Text>
+                     <Text style={loginStyles.btnOutLineText}>SIGN UP</Text>
                  </TouchableOpacity>
              </View>
          </SafeAreaView>
@@ -101,5 +92,4 @@ const LoginScreen = () =>{
    )
 }
 
-
-export default LoginScreen
+export default LoginScreen;

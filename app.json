@@ -8,7 +8,16 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "android": {
+        "googleServicesFile": "./google-services.json"
+      },
+      "ios": {
+        "googleServicesFile": "./GoogleService-Info.plist"
+      },
+      "plugins": [
+        "@react-native-google-signin/google-signin"
+      ]
     },
     "updates": {
       "fallbackToCacheTimeout": 0

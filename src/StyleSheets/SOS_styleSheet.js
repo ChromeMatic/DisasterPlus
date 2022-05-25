@@ -3,7 +3,7 @@ import {StyleSheet,Dimensions} from "react-native";
 const SOS_styleSheet = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor:'#bdc3c7'
+        backgroundColor:'#ecf0f1'
     },
     map:{
         marginTop:20,
