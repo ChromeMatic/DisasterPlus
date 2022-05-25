@@ -1,14 +1,23 @@
 {
   "expo": {
-    "name": "DisasterPlus",
-    "slug": "DisasterPlus",
+    "name": "DisasterPlusV25",
+    "slug": "disasterplusv25",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "android": {
+        "googleServicesFile": "./google-services.json"
+      },
+      "ios": {
+        "googleServicesFile": "./GoogleService-Info.plist"
+      },
+      "plugins": [
+        "@react-native-google-signin/google-signin"
+      ]
     },
     "updates": {
       "fallbackToCacheTimeout": 0
