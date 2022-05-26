@@ -37,14 +37,18 @@ const ReportScreenStyle = StyleSheet.create({
         alignItems:'center'
     },
     _btn:{
-        marginTop:28,
+        marginTop:38,
         backgroundColor:'#2ecc71',
-        width:350,
+        width:250,
         paddingHorizontal:24,
         paddingVertical:8,
         borderRadius:8,
         justifyContent:"center",
         alignItems:'center'
+    },
+    SaveBtn:{
+        marginTop:64,
+        backgroundColor:'#2ecc71'
     },
     text:{
         color:"#fff",

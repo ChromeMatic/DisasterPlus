@@ -16,8 +16,10 @@ const Box = () =>{
                 marginRight:8,
             }}>
                 <Text style={{
-                    color:'#ffff'
-                }}>Info1</Text>
+                    color:'#ffff',
+                    textAlign:'center',
+                    fontWeight:'bold',
+                }}>{'Weather News'}</Text>
             </View>
 
             <View style={{
@@ -29,8 +31,10 @@ const Box = () =>{
                 borderRadius:6,
             }}>
                 <Text style={{
-                    color:'#ffff'
-                }}>Info2</Text>
+                    color:'#ffff',
+                    textAlign:'center',
+                    fontWeight:'bold',
+                }}>{'Local News'}</Text>
             </View>
 
         </View>
@@ -107,6 +111,74 @@ const Details = () =>{
     )
 }
 
+const Details2 = () =>{
+    return(
+        <View style={style.box2}>
+            <Text style={{
+                color:'#2c3e50',
+                fontWeight:'bold',
+                fontSize:22
+            }}>
+                {'Reports'.toUpperCase()}
+            </Text>
+            <View style={{justifyContent: 'center', borderRadius:6, alignItems: 'center', backgroundColor:'#bdc3c7',padding:6}}>
+                <View style={{flex:1, flexDirection:'row', marginTop:16,}}>
+                    <Text style={{fontSize:18}}>Name:</Text>
+                    <Text style={style._text}> Alex Jones</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <Text style={{fontSize:18}}>Address:</Text>
+                    <Text style={style._text}> Uptown lane</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <Text style={{fontSize:18}}>Phone number:</Text>
+                    <Text style={style._text}> 8767654321</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <Text style={{fontSize:18}}>Emergency: </Text>
+                    <Text style={style._text}> Ambulance</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <Text style={{fontSize:18}}>Description: </Text>
+                    <Text style={style._text}> I'm hurt</Text>
+                </View>
+            </View>
+        </View>
+    )
+}
+
+const Details3 = () =>{
+    return(
+        <View style={style.box2}>
+            <Text style={{
+                color:'#2c3e50',
+                fontWeight:'bold',
+                fontSize:22
+            }}>
+                {'Request for help'.toUpperCase()}
+            </Text>
+            <View style={{justifyContent: 'center', borderRadius:6, alignItems: 'center', backgroundColor:'#bdc3c7',padding:8}}>
+                <View style={{flex:1, flexDirection:'row', marginTop:16,}}>
+                    <Text style={{fontSize:18}}>Full name:</Text>
+                    <Text style={style._text}> Alex Jones</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row', }}>
+                    <Text style={{fontSize:18}}>telephone number:</Text>
+                    <Text style={style._text}> 8765431290</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row',}}>
+                    <Text style={{fontSize:18}}>Address:</Text>
+                    <Text style={style._text}> Uptown lane 3 north st Andrew</Text>
+                </View>
+                <View style={{flex:1, flexDirection:'row',}}>
+                    <Text style={{fontSize:18}}>Description of request:</Text>
+                    <Text style={style._text}> Need help</Text>
+                </View>
+            </View>
+        </View>
+    )
+}
+
 // Code for Charts info
 const Chart = () =>{
     return(
@@ -137,8 +209,8 @@ const Chart = () =>{
                 }}
                 width={Dimensions.get("window").width}
                 height={220}
-                yAxisLabel="$"
-                yAxisSuffix="k"
+                yAxisLabel="->"
+                yAxisSuffix=""
                 yAxisInterval={1}
                 chartConfig={{
                     backgroundColor: "#e26a00",
@@ -168,6 +240,8 @@ const AdminScreen = () =>{
             <Box/>
             <Chart/>
             <Box2/>
+            <Details2/>
+            <Details3/>
             <Details/>
       </ScrollView>
       </SafeAreaView>
@@ -193,6 +267,11 @@ const style = StyleSheet.create({
         flexDirection:"column",
         width:'100%',
         padding:16,
+    },
+    _text:{
+        marginLeft:4,
+        fontWeight:"bold",
+        fontSize:18,
     }
 });
 
