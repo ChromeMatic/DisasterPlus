@@ -1,94 +1,52 @@
-import {Dimensions, StyleSheet} from 'react-native'
+import {Dimensions, StyleSheet, Platform} from 'react-native'
 
 const HomeStyle = StyleSheet.create({
-    _btn:{
-        marginBottom:16,
-        backgroundColor:"#FFFF",
-        paddingVertical: 16,
-        paddingHorizontal: 34,
-        borderRadius:12
-    },
     container:{
-        flex:1,
-        marginTop:20,
-        backgroundColor:'#ECF1EE'
-    },
-    headerView:{
-        height:Dimensions.get('window').height/6,
-        justifyContent:'center',
-        paddingHorizontal:32
-    },
-    fromView:{
+        paddingTop: Platform.OS === "ios" ? 60 : 25,
         backgroundColor:'#FFFF',
-        height:Dimensions.get('window').height - Dimensions.get('window').height/5,
-        borderTopLeftRadius:32,
-        borderTopRightRadius:32,
-        flexDirection:'column',
-        paddingHorizontal:18,
-        paddingVertical:6,
     },
-    fromText:{
-        fontSize:28,
-        color:'#34495e'
+    profileImg:{
+        marginLeft:6,
+        marginTop:2,
     },
-    fromSubText:{
-        marginTop:8,
-        fontSize:14,
-        color:'#27ae60'
+    bgImage:{
+        height:Dimensions.get("window").height/2,
+        width:Dimensions.get("window").width/1.1
     },
-    input:{
-        borderRadius:16,
-        paddingVertical:12,
-        paddingHorizontal:8,
-        width:'100%',
-        borderWidth:1,
-        borderColor:'#16a085',
-        backgroundColor:'#ECF1EE',
+    ImgCon:{
+      padding:8,
+      borderRadius:16,
+      backgroundColor:'#F9F4F3'
     },
-    label:{
-        marginLeft:10,
-        marginBottom:2,
-        marginTop:24,
-        fontSize:18,
+    TextHeader:{
+        textAlign:"center",
+        marginTop:16,
+        marginBottom:8,
+        fontWeight:'700',
         color:'#16a085'
     },
-    Btn:{
-        backgroundColor:'black',
-        color:'#FFFF',
-        borderRadius:16,
-        paddingVertical:12,
-        paddingHorizontal:8,
-        marginTop:28,
-        marginBottom:18
+    CardCon:{
+        paddingHorizontal:16,
+        paddingVertical:8,
     },
-    con1:{
-        flex:1,
-        alignItems:"flex-start",
-        justifyContent:"flex-start",
-        backgroundColor:"#2c3e50"
+    card:{
+      marginTop:16
     },
-    con2:{
-        justifyContent:"flex-start",
-        padding:15,
+    cardTextHeader:{
+        textAlign:"center",
+        fontWeight:'bold',
+        color:'#16a085',
+        marginBottom:10,
     },
-    con3:{
-
+    cardText:{
+        marginTop:8,
+        textAlign:"center",
+        fontWeight:'500',
+        color:'#16a085',
+        marginBottom:16,
     },
-    img:{
-        width:60,
-        height:60,
-        borderRadius:12,
-        marginTop:20
-    },
-    btnCon:{
-        flexDirection:"row",
-        alignItems:"center",
-        paddingVertical:12,
-        backgroundColor:'#fff',
-        paddingLeft:30,
-        paddingRight:30,
-        borderRadius: 4,
-        marginTop:25,
+    btn:{
+        marginTop:8
     }
 })
 

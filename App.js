@@ -12,6 +12,7 @@ import {Provider} from "react-redux";
 import {Store} from "./src/Redux/store";
 import HelpFrom from "./src/Screens/HelpFrom";
 import SignUpScreen from "./src/Login&SignUpScreens/SignUpScreen";
+import ContactPage from "./src/Screens/ContactPage"
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
                    <Stack.Screen name="Admin" component={AdminScreen}/>
                    <Stack.Screen name="ReportScreen" component={Report_Screen}/>
                    <Stack.Screen name="HelpFrom" component={HelpFrom}/>
+                   <Stack.Screen name="ContactPage" component={ContactPage}/>
                </Stack.Navigator>
            </NavigationContainer>
        </Provider>

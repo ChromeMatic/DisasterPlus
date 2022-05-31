@@ -7,7 +7,10 @@ const MakePlan = () =>{
 
     const nav = useNavigation();
 
-    const Save = () => {}
+    const Save = () => {
+        alert("plan saved".toUpperCase());
+        nav.navigate('HomeScreen');
+    }
 
     const SaveBtn = () =>{
         return(
