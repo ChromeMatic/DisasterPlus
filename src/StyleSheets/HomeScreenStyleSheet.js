@@ -25,6 +25,13 @@ const HomeStyle = StyleSheet.create({
         fontWeight:'700',
         color:'#16a085'
     },
+    AD_TextHeader:{
+        textAlign:"center",
+        marginTop:16,
+        marginBottom:8,
+        fontWeight:'700',
+        color:'#3498db'
+    },
     CardCon:{
         paddingHorizontal:16,
         paddingVertical:8,
@@ -38,7 +45,34 @@ const HomeStyle = StyleSheet.create({
         color:'#16a085',
         marginBottom:10,
     },
+
+    ad_cardTextHeader:{
+        textAlign:"center",
+        fontWeight:'bold',
+        color:'#3498db',
+        marginBottom:10,
+    },
+    QuizCardTextHeader:{
+        textAlign:"center",
+        fontWeight:'bold',
+        color:'#16a085',
+        marginBottom:10,
+    },
     cardText:{
+        marginTop:8,
+        textAlign:"center",
+        fontWeight:'500',
+        color:'#16a085',
+        marginBottom:16,
+    },
+    ad_cardText:{
+        marginTop:8,
+        textAlign:"center",
+        fontWeight:'500',
+        color:'#3498db',
+        marginBottom:16,
+    },
+    Quiz_cardText:{
         marginTop:8,
         textAlign:"center",
         fontWeight:'500',

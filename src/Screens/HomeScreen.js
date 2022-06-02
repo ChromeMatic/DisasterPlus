@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React from "react";
 import { ScrollView,SafeAreaView, Image,View} from "react-native";
 import { ApplicationProvider, Layout, TopNavigation,Avatar, Divider, Text, Card, Button} from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
@@ -9,8 +9,6 @@ import {auth} from "../../firebase";
 import {useNavigation} from "@react-navigation/native";
 
 const HomeScreen = () => {
-
-  const toPage = (title) =>{navigation.navigate(title)}
 
   const UserAvatar = () =>{
       return(
@@ -54,12 +52,77 @@ const HomeScreen = () => {
                           />
                       </View>
 
+
+                      <Text style={HomeScreenStyleSheet.AD_TextHeader} category='h3'>
+                          {'admin'.toUpperCase()}
+                      </Text>
+
+                      <View style={HomeScreenStyleSheet.CardCon}>
+                          <Card status='primary'>
+                              <Text category='h6' style={HomeScreenStyleSheet.ad_cardTextHeader}>
+                                  {'administration'.toUpperCase()}
+                              </Text>
+                              <Divider/>
+                              <Text category='h8' style={HomeScreenStyleSheet.ad_cardText}>
+                                  {'For administration use only.'}
+                              </Text>
+                              <Divider/>
+                              <Button
+                                  onPress={()=>{
+                                      let user = auth.currentUser;
+                                      if( user.email === 'admin@gmail.com'){
+                                          navigation.navigate('AdminHomePage');
+                                      }else{
+                                          alert(user.email);
+                                      }
+                                  }}
+                                  style={HomeScreenStyleSheet.btn} status='primary' appearance='outline'
+                              >
+                                  <Text>{'admin'.toUpperCase()}</Text>
+                              </Button>
+                          </Card>
+                          <Card style={{marginTop:20,marginBottom:16}} status='basic'>
+                              <Text category='h6' style={HomeScreenStyleSheet.QuizCardTextHeader}>
+                                  {'notification'.toUpperCase()}
+                              </Text>
+                              <Divider/>
+                              <Text category='h8' style={HomeScreenStyleSheet.Quiz_cardText}>
+                                  {'Are you ready for this hurricane season, if so complete a quick quiz.'}
+                              </Text>
+                              <Divider/>
+                              <Button
+                                  onPress={()=>{navigation.navigate('QuizScreen');}}
+                                  style={HomeScreenStyleSheet.btn} status='basic' appearance='outline'
+                              >
+                                  <Text>{'QUIZ'.toUpperCase()}</Text>
+                              </Button>
+                          </Card>
+                      </View>
+
                       <Text style={HomeScreenStyleSheet.TextHeader} category='h3'>
                           {'services'.toUpperCase()}
                       </Text>
 
                       <View style={HomeScreenStyleSheet.CardCon}>
-                          <Card status='success'>
+
+                          <Card style={HomeScreenStyleSheet.card} status='danger'>
+                              <Text category='h6' style={HomeScreenStyleSheet.cardTextHeader}>
+                                  {'Request Help'.toUpperCase()}
+                              </Text>
+                              <Divider/>
+                              <Text category='h8' style={HomeScreenStyleSheet.cardText}>
+                                  {'In this section you can request help where every you are.'}
+                              </Text>
+                              <Divider/>
+                              <Button
+                                  onPress={()=>{navigation.navigate('SOS')}}
+                                  style={HomeScreenStyleSheet.btn} status='danger' appearance='outline'
+                              >
+                                  <Text>GET HELP</Text>
+                              </Button>
+                          </Card>
+
+                          <Card status='basic'>
                               <Text category='h6' style={HomeScreenStyleSheet.cardTextHeader}>
                                   {'make a plan'.toUpperCase()}
                               </Text>
@@ -70,9 +133,26 @@ const HomeScreen = () => {
                               <Divider/>
                               <Button
                                   onPress={()=>{navigation.navigate('MakePlan')}}
-                                  style={HomeScreenStyleSheet.btn} status='success' appearance='outline'
+                                  style={HomeScreenStyleSheet.btn} status='basic' appearance='outline'
                               >
                                  <Text>GET STARTED</Text>
+                              </Button>
+                          </Card>
+
+                          <Card style={HomeScreenStyleSheet.card} status='basic'>
+                              <Text category='h6' style={HomeScreenStyleSheet.cardTextHeader}>
+                                  {'contact emergency services'.toUpperCase()}
+                              </Text>
+                              <Divider/>
+                              <Text category='h8' style={HomeScreenStyleSheet.cardText}>
+                                  {'In this section you can view the various contact info for emergency services.'}
+                              </Text>
+                              <Divider/>
+                              <Button
+                                  onPress={()=>{navigation.navigate('ContactPage')}}
+                                  style={HomeScreenStyleSheet.btn} status='basic' appearance='outline'
+                              >
+                                  <Text>GET HELP</Text>
                               </Button>
                           </Card>
 
@@ -87,45 +167,13 @@ const HomeScreen = () => {
                               <Divider/>
                               <Button
                                   onPress={()=>{navigation.navigate('ReportScreen')}}
-                                  style={HomeScreenStyleSheet.btn} status='success' appearance='outline'
+                                  style={HomeScreenStyleSheet.btn} status='success'
+                                  appearance='outline'
                               >
                                   <Text>GET STARTED</Text>
                               </Button>
                           </Card>
 
-                          <Card style={HomeScreenStyleSheet.card} status='success'>
-                              <Text category='h6' style={HomeScreenStyleSheet.cardTextHeader}>
-                                  {'get help'.toUpperCase()}
-                              </Text>
-                              <Divider/>
-                              <Text category='h8' style={HomeScreenStyleSheet.cardText}>
-                                  {'In this section you can request help where every you are.'}
-                              </Text>
-                              <Divider/>
-                              <Button
-                                  onPress={()=>{navigation.navigate('SOS')}}
-                                  style={HomeScreenStyleSheet.btn} status='success' appearance='outline'
-                              >
-                                  <Text>GET HELP</Text>
-                              </Button>
-                          </Card>
-
-                          <Card style={HomeScreenStyleSheet.card} status='success'>
-                              <Text category='h6' style={HomeScreenStyleSheet.cardTextHeader}>
-                                  {'contact emergency services'.toUpperCase()}
-                              </Text>
-                              <Divider/>
-                              <Text category='h8' style={HomeScreenStyleSheet.cardText}>
-                                  {'In this section you can view the various contact info for emergency services.'}
-                              </Text>
-                              <Divider/>
-                              <Button
-                                  onPress={()=>{navigation.navigate('ContactPage')}}
-                                  style={HomeScreenStyleSheet.btn} status='success' appearance='outline'
-                              >
-                                  <Text>GET HELP</Text>
-                              </Button>
-                          </Card>
                       </View>
 
                   </Layout>

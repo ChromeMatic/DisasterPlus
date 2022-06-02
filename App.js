@@ -13,6 +13,8 @@ import {Store} from "./src/Redux/store";
 import HelpFrom from "./src/Screens/HelpFrom";
 import SignUpScreen from "./src/Login&SignUpScreens/SignUpScreen";
 import ContactPage from "./src/Screens/ContactPage"
+import AdminHomePage from  "./src/AdminScreens/AdminHomePage"
+import QuizScreen from "./src/Screens/QuizScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,8 @@ export default function App() {
                    <Stack.Screen name="ReportScreen" component={Report_Screen}/>
                    <Stack.Screen name="HelpFrom" component={HelpFrom}/>
                    <Stack.Screen name="ContactPage" component={ContactPage}/>
+                   <Stack.Screen name="AdminHomePage" component={AdminHomePage}/>
+                   <Stack.Screen name="QuizScreen" component={QuizScreen}/>
                </Stack.Navigator>
            </NavigationContainer>
        </Provider>

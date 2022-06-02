@@ -84,7 +84,6 @@ const HelpFrom = () =>{
                            </Text>
                        </TouchableOpacity>
 
-                       <Text>{h_From.fullName}</Text>
                    </View>
                </View>
             </ScrollView>

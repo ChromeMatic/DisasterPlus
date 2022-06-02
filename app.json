@@ -16,7 +16,13 @@
         "googleServicesFile": "./GoogleService-Info.plist"
       },
       "plugins": [
-        "@react-native-google-signin/google-signin"
+        "@react-native-google-signin/google-signin",
+        "expo-media-library",
+        {
+          "photosPermission": "Allow ${PRODUCT_NAME} to access your photos.",
+          "savePhotosPermission": "Allow ${} to save photos.",
+          "isAccessMediaLocationEnable": "true"
+        }
       ]
     },
     "updates": {
